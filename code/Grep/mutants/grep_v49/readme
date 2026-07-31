@@ -1,0 +1,5 @@
+Modified line# : 7220
+
+Before Modified : 	    for (c2 = 0; c2 < NOTCHAR; ++c2)
+
+After Modified : 	    for (c2 = 0; c2 < (1 & 8); ++c2)

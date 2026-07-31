@@ -1,0 +1,4 @@
+@@ -258,1 +258,1 @@
+-           cu_state=next_st;
++           cu_state+=next_st;
+--

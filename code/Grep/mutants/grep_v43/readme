@@ -1,0 +1,5 @@
+Modified line# : 7228
+
+Before Modified : 	    if (c == '\\' && (syntax_bits & RE_BACKSLASH_ESCAPE_IN_LISTS))
+
+After Modified : 	    if (!(c == '\\' && (syntax_bits & RE_BACKSLASH_ESCAPE_IN_LISTS)))

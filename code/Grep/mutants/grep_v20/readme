@@ -1,0 +1,5 @@
+Modified line# : 7893
+
+Before Modified : 	    for (j = 0; j < nlastpos[-2]; ++j)
+
+After Modified : 	    for (j = 0; j < searchflag; ++j)

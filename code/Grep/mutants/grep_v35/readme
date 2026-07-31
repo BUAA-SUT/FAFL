@@ -1,0 +1,5 @@
+Modified line# : 7218
+
+Before Modified : 	    if (looking_at(prednames[c1].name))
+
+After Modified : 	    if (looking_at(prednames[syntax_bits_set].name))

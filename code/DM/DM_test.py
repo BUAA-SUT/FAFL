@@ -4,14 +4,12 @@ import coverage
 from DM import *
 from publicFun import *
 from openpyxl import load_workbook
-from Original import *
-from Mutant1 import *
-from Mutant2 import *
-from Mutant3 import *
-from Mutant4 import *
-from Mutant5 import *
-from Mutant6 import *
-from Mutant7 import *
+from mutants.Original import *
+from mutants.Mutant1 import *
+from mutants.Mutant2 import *
+from mutants.Mutant3 import *
+from mutants.Mutant4 import *
+from mutants.Mutant5 import *
 random.seed(1)
 
 

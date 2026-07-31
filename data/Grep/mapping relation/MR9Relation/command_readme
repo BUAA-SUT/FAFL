@@ -1,0 +1,2 @@
+# using the following command gets 'MR9'
+grep -E -nv "\|$" ./partition_scheme_testcases_1.2 >> MR9

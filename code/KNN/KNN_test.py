@@ -2,9 +2,9 @@ from KNN import *
 import json
 import os
 import csv
-from Mutant1 import *
-from Mutant2 import *
-from Mutant4 import *
+from mutants.Mutant1 import *
+from mutants.Mutant2 import *
+from mutants.Mutant4 import *
 import coverage
 from publicFun import *
 from openpyxl import load_workbook

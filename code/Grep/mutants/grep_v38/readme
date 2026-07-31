@@ -1,0 +1,5 @@
+Modified line# : 7265
+
+Before Modified : 	    while ((c = c1) != ']');
+
+After Modified : 	    while ((c = c1) == ']');

@@ -1,0 +1,4 @@
+# using the following commands gets 'MR３' file and 'MR３_matched_content', respectively.
+grep -E -n "\(\[\w*\]\)|^\[\w*\]$" ./partition_scheme_testcases_1.2 >> MR3
+
+grep -E -o "\(\[\w*\]\)|^\[\w*\]$" ./partition_scheme_testcases_1.2 >> MR3_matched_content

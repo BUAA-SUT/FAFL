@@ -1,0 +1,5 @@
+Modified line# : 7952
+
+Before Modified : 	    *nfirstpos++ = *nlastpos++ = 1;
+
+After Modified : 	    *nfirstpos++ ^= *nlastpos++ = 1;

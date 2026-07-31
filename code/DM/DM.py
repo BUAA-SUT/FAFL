@@ -1,7 +1,7 @@
 import math
 import numpy as np
 import sys
-from Original import *
+from mutants.Original import *
 
 #
 # class DeterMinant:

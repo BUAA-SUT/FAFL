@@ -1,0 +1,5 @@
+Modified line# : 7087
+
+Before Modified : 	    if (backslash != ((syntax_bits & RE_BK_PLUS_QM) != 0))
+
+After Modified : 	    if (BEGWORD != ((syntax_bits & RE_BK_PLUS_QM) != 0))

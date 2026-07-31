@@ -1,0 +1,5 @@
+Modified line# : 7915
+
+Before Modified : 	    pos = lastpos + nlastpos[-2];
+
+After Modified : 	    pos = lastpos;

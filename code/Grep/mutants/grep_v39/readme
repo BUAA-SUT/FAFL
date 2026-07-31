@@ -1,0 +1,5 @@
+Modified line# : 7251
+
+Before Modified : 	    c2 = c;
+
+After Modified : 	    c2 %= c;

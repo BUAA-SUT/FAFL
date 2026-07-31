@@ -1,0 +1,4 @@
+Modified line# : 7931
+
+Before Modified : 	    nfirstpos[-2] += nfirstpos[-1];
+After Modified : 	    nfirstpos[-2] += nlastpos[-1];

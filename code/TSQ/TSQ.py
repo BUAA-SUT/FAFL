@@ -1,6 +1,6 @@
 import math
 import sys
-from Original import *
+from mutants.Original import *
 
 
 def MR1(argv, dynamic):

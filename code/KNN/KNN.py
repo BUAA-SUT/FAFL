@@ -5,7 +5,7 @@ import operator
 from decimal import *
 import random
 import sys
-from Original import *
+from mutants.Original import *
 random.seed(1)
 
 
@@ -599,5 +599,4 @@ def MTG(source_case, dynamic):
         MG.append(result)
         follow_case.append(follow)
     return MG, follow_case
-
 

@@ -1,0 +1,5 @@
+Modified line# : 7216
+
+Before Modified : 	    if (c == '[' && (syntax_bits & RE_CHAR_CLASSES))
+
+After Modified : 	    if (c == RPAREN && (syntax_bits & RE_CHAR_CLASSES))

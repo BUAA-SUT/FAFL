@@ -1,0 +1,5 @@
+Modified line# : 7906
+
+Before Modified : 	    firstpos += nfirstpos[-1];
+
+After Modified : 	    firstpos += o_nullable[-1];

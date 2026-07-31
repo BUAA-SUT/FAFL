@@ -1,0 +1,4 @@
+@@ -558,1 +558,1 @@
+-          token_ind=ind;
++          token_ind = start;
+--

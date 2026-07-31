@@ -1,0 +1,5 @@
+Modified line# : 7878
+
+Before Modified : 	    copy(&merged, &d->follows[pos[j].index]);
+
+After Modified : 	    copy(&merged, &d->follows[pos[BACKREF].strchr]);

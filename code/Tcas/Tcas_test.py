@@ -4,8 +4,8 @@ from Tcas import *
 import coverage
 import json
 from publicFun import *
-from Mutants import *
-from Original import *
+from mutants.Mutants import *
+from mutants.Original import *
 from openpyxl import load_workbook
 random.seed(1)
 

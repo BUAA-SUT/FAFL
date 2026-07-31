@@ -6,13 +6,12 @@ import coverage
 import scipy.sparse as ss
 import copy
 import random
-from Mutant1 import *
-from Mutant2 import *
-from Mutant3 import *
-from Mutant4 import *
-from Mutant5 import *
-from Mutant6 import *
-from Mutant7 import *
+from mutants.Mutant2 import *
+from mutants.Mutant3 import *
+from mutants.Mutant4 import *
+from mutants.Mutant5 import *
+from mutants.Mutant6 import *
+from mutants.Mutant7 import *
 from openpyxl import load_workbook
 random.seed(1)
 

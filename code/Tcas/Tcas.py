@@ -1,5 +1,5 @@
 import sys
-from Mutants import *
+from mutants.Mutants import *
 
 
 def MR1(argv, dynamic):

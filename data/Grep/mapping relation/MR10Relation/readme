@@ -1,0 +1,5 @@
+首先执行utl文件中的脚本生成normal_literals文件
+接着执行grep -E -vn "\w+-\w+" ./../normal_literals > normal_literals_4_MR10得到ＭＲ１０的特定文件
+接着利用sed -e '/NULL/d' ./normal_literals_4_MR10 > normal_literals_4_MR10_lines得到对应测试用例的正常字符
+
+最后读取temp文件中的行号得到最后的ＭＲ１０
