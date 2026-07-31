@@ -89,6 +89,10 @@ EXPECTED_MUTANTS = {
     },
 }
 
+KNOWN_MISSING_MUTANTS = {
+    "Grep": {51, 52, 53, 54, 55, 56},
+}
+
 MR_FILES = {
     "TSQ": ROOT / "code/TSQ/TSQ.py",
     "DM": ROOT / "code/DM/DM.py",
@@ -151,6 +155,7 @@ def mutant_numbers(subject: str) -> set[int]:
 
 def main() -> int:
     failures = []
+    known_gaps = []
     print("Artifact inventory")
     print("------------------")
     for subject in EXPECTED_MRS:
@@ -159,6 +164,8 @@ def main() -> int:
         actual_mutants = mutant_numbers(subject)
         missing_mrs = expected_mrs - actual_mrs
         missing_mutants = EXPECTED_MUTANTS[subject] - actual_mutants
+        documented_missing = missing_mutants & KNOWN_MISSING_MUTANTS.get(subject, set())
+        unexpected_missing = missing_mutants - documented_missing
         extra_mutants = actual_mutants - EXPECTED_MUTANTS[subject]
         data_exists = REQUIRED_DATA[subject].is_file()
 
@@ -167,9 +174,17 @@ def main() -> int:
         if missing_mrs:
             status = "INCOMPLETE"
             details.append(f"missing MRs {sorted(missing_mrs)}")
-        if missing_mutants:
+        if unexpected_missing:
             status = "INCOMPLETE"
-            details.append(f"missing mutants {sorted(missing_mutants)}")
+            details.append(f"missing mutants {sorted(unexpected_missing)}")
+        if documented_missing:
+            if status == "OK":
+                status = "KNOWN GAP"
+            details.append(f"documented missing mutants {sorted(documented_missing)}")
+            known_gaps.append(
+                f"{subject}: source directories are unavailable for "
+                f"{sorted(documented_missing)}"
+            )
         if extra_mutants:
             status = "INCOMPLETE"
             details.append(f"unexpected mutants {sorted(extra_mutants)}")
@@ -177,8 +192,13 @@ def main() -> int:
             status = "INCOMPLETE"
             details.append(f"missing data {REQUIRED_DATA[subject].relative_to(ROOT)}")
 
-        if details:
-            failures.extend(f"{subject}: {detail}" for detail in details)
+        failure_details = [
+            detail
+            for detail in details
+            if not detail.startswith("documented missing mutants")
+        ]
+        if failure_details:
+            failures.extend(f"{subject}: {detail}" for detail in failure_details)
         suffix = f" ({'; '.join(details)})" if details else ""
         print(
             f"{subject:5} {status:10} "
@@ -201,7 +221,12 @@ def main() -> int:
             print(f"- {failure}")
         return 1
 
-    print("\nAll documented artifacts are present.")
+    if known_gaps:
+        print("\nDocumented packaging gaps:")
+        for gap in known_gaps:
+            print(f"- {gap}")
+
+    print("\nInventory matches the documented packaging status.")
     return 0
 
 
