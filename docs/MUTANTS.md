@@ -35,29 +35,22 @@ step requires an individual test oracle.
 
 ## Packaging Status
 
-The supplied local source workspace contains Grep mutant directories through
-`grep_v50`. The experiment and result data also refer to selected mutants
-`grep_v51` through `grep_v56`, but their source directories were not present in
-the supplied workspace. These six versions were added in a later STVR-related
-extension of the Grep experiment. The preserved experiment driver and result
-files identify their faulty source lines and the corresponding zero-based
-positions in the 3,661-element executable-statement vector:
+All 114 selected mutant sources are included. Grep versions 51-56 were
+recovered from the later Grep extension workspace by matching the faulty-line
+positions preserved in `test_grep.py` with the mutation descriptions in the
+original mutant directories. They are stored with the other selected versions
+under `code/Grep/mutants/`.
 
-| Mutant | Faulty source line | Nonzero position in `Flag` |
-| --- | ---: | ---: |
-| `grep_v51` | 7156 | 1990 |
-| `grep_v52` | 1729 | 572 |
-| `grep_v53` | 7163 | 1995 |
-| `grep_v54` | 8708 | 2720 |
-| `grep_v55` | 8003 | 2385 |
-| `grep_v56` | 7142 | 1980 |
+| Published version | Recovered source | Line | Original expression | Mutated expression |
+| --- | --- | ---: | --- | --- |
+| `grep_v51` | extension `grep_v1` | 7156 | `RE_NO_BK_PARENS) == 0` | `RE_NO_BK_PARENS) != 0` |
+| `grep_v52` | extension `grep_v7` | 1729 | `nfirstpos[-1]` | `nfirstpos[+1]` |
+| `grep_v53` | extension `grep_v9` | 7163 | `RE_NO_BK_PARENS) == 0` | `RE_NO_BK_PARENS) != 0` |
+| `grep_v54` | extension `grep_v10` | 8708 | `malloc(newsize + 1)` | `malloc(newsize - 1)` |
+| `grep_v55` | extension `grep_v11` | 8003 | `d->follows[i].nelem < merged.nelem` | `d->follows[i].nelem > merged.nelem` |
+| `grep_v56` | extension `grep_v13` | 7142 | `RE_NO_BK_VBAR) == 0` | `RE_NO_BK_VBAR) != 0` |
 
-The source-line mapping is retained in `code/Grep/test_grep.py`, and the
-nonzero `Flag` positions were verified against the original
-`mutant51.json`-`mutant56.json` result files. These records establish the
-fault locations, but they do not record the exact source-code replacement made
-at each location. The package therefore includes the other 27 selected Grep
-source versions and does not fabricate source directories for `grep_v51`
-through `grep_v56`. Those directories or equivalent mutation records must be
-recovered before the source package can be described as complete for all 114
-mutants.
+The corresponding `ReadMe` file in each directory preserves the complete
+mutation record and provenance. The line numbers also match the six `Flag`
+assignments in the original experiment driver, so these versions are recovered
+artifacts rather than inferred or newly generated mutants.
